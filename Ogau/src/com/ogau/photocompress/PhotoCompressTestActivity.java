@@ -84,7 +84,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 			ArrayList<String> photos = data.getStringArrayListExtra(Constants.EXTRA_RESULT);
 
 			File imgFile = new File(photos.get(0));
-			tv_pra_old.setText(imgFile.length() / 1024 + "k" + computeSize(imgFile)[0] + "*" + computeSize(imgFile)[1]);
+			tv_pra_old.setText("压缩前图片参数："+imgFile.length() / 1024 + "k     " + computeSize(imgFile)[0] + "*" + computeSize(imgFile)[1]);
 
 			for (String photo : photos) {
 				compressWithRx(new File(photo));
@@ -122,7 +122,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 
 	            Glide.with(context).load(file).into(iv_now);
 
-	            tv_pra_now.setText(file.length() / 1024 + "k"+computeSize(file)[0] + "*" + computeSize(file)[1]);
+	            tv_pra_now.setText("压缩后图片参数："+file.length() / 1024 + "k     "+computeSize(file)[0] + "*" + computeSize(file)[1]);
 	          }
 	        });
 	}
