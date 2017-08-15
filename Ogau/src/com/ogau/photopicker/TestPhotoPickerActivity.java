@@ -29,11 +29,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TestPhotoPickerActivity extends BaseActivity implements OnClickListener{
+public class TestPhotoPickerActivity extends BaseActivity implements OnClickListener {
 
 	private Context context = TestPhotoPickerActivity.this;
-	private String TAG =this.getClass().getSimpleName();
+	private String TAG = this.getClass().getSimpleName();
 
+	private LinearLayout ll_act_m, ll_act_l, ll_act_r;
+	private TextView tv_act_m, tv_act_l, tv_act_r;
 
 	private Button bt_pic_single, bt_pic_multy, bt_pic_photo;
 	private GridView gv_pic;
@@ -49,7 +51,7 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_test_photo_picker);
-
+		initAct();
 		initView();
 	}
 
@@ -107,7 +109,7 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 				// config.mimeType = new String[]{"image/jpeg", "image/png"};
 				// config.minSize = 1 * 1024 * 1024; // 1Mb
 				// intent.setImageConfig(config);
-				
+
 				startActivityForResult(intent, REQUEST_CAMERA_CODE);
 			}
 		});
@@ -141,7 +143,7 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 		PhotoPreviewIntent intent = new PhotoPreviewIntent(context);
 		intent.setCurrentItem(0);
 		intent.setPhotoPaths(imagePaths);
-//		startActivityForResult(intent, Constants.REQUEST_PREVIEW);
+		// startActivityForResult(intent, Constants.REQUEST_PREVIEW);
 		startActivityForResult(intent, REQUEST_PREVIEW_CODE);
 	}
 
@@ -236,4 +238,25 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 		}
 	}
 
+	private void initAct() {
+		ll_act_m=(LinearLayout) findViewById(R.id.ll_act_m);
+		ll_act_l=(LinearLayout) findViewById(R.id.ll_act_l);
+		ll_act_r=(LinearLayout) findViewById(R.id.ll_act_r);
+		
+		tv_act_m=(TextView) findViewById(R.id.tv_act_m);
+		tv_act_l=(TextView) findViewById(R.id.tv_act_l);
+		tv_act_r=(TextView) findViewById(R.id.tv_act_r);
+		
+		tv_act_m.setText("图片选择测试");
+		tv_act_l.setText("返回");
+		ll_act_r.setVisibility(View.GONE);
+		ll_act_l.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+	}
 }

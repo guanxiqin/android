@@ -1,6 +1,7 @@
 package com.ogau;
 
 import com.ogau.base.BaseActivity;
+import com.ogau.photocompress.PhotoCompressTestActivity;
 import com.ogau.photopicker.TestPhotoPickerActivity;
 
 import android.app.Activity;
@@ -15,7 +16,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private Context context = MainActivity.this;
 	private String TAG = this.getClass().getSimpleName();
 
-	private Button bt_photo_picker;
+	private Button bt_photo_picker,bt_photo_compress;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			Intent intentPP=new Intent(context, TestPhotoPickerActivity.class);
 			startActivity(intentPP);
 			break;
+		case R.id.bt_photo_compress:
+			Intent intentPPr=new Intent(context, PhotoCompressTestActivity.class);
+			startActivity(intentPPr);
+			break;
 		default:
 			break;
 		}
@@ -40,6 +45,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private void initViews() {
 		bt_photo_picker = (Button) findViewById(R.id.bt_photo_picker);
+		bt_photo_compress = (Button) findViewById(R.id.bt_photo_compress);
+		
+		
 		bt_photo_picker.setOnClickListener(this);
+		bt_photo_compress.setOnClickListener(this);
 	}
 }

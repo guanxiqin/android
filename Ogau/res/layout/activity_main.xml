@@ -23,6 +23,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="图片选择" />
+             <Button
+                android:id="@+id/bt_photo_compress"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="图片压缩" />
         </LinearLayout>
     </ScrollView>
 
