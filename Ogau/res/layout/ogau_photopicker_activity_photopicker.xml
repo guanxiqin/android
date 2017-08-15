@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- <include layout="@layout/photopicker_toolbar" /> -->
+
+    <include layout="@layout/icd_acb_top" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <GridView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:columnWidth="@dimen/ogau_photopicker_image_size"
+            android:horizontalSpacing="@dimen/ogau_photopicker_space_size"
+            android:paddingBottom="?android:attr/actionBarSize"
+            android:verticalSpacing="@dimen/ogau_photopicker_space_size" />
+
+        <RelativeLayout
+            android:id="@+id/photo_picker_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#cc000000"
+            android:minHeight="?android:attr/actionBarSize" >
+
+            <Button
+                android:id="@+id/btnAlbum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:drawableRight="@drawable/text_indicator"
+                android:gravity="center"
+                android:text="@string/ogau_photopicker_all_image"
+                android:textColor="@drawable/action_text_color"
+                android:textSize="@dimen/ogau_photopicker_action_text_size" />
+
+            <Button
+                android:id="@+id/btnPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="@string/ogau_photopicker_preview"
+                android:textColor="@drawable/action_text_color"
+                android:textSize="@dimen/ogau_photopicker_action_text_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
