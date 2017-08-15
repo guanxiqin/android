@@ -22,7 +22,17 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp" />
              <TextView
+                android:id="@+id/tv_path_old"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+             <TextView
                 android:id="@+id/tv_pra_now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp" />
+              <TextView
+                android:id="@+id/tv_path_now"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp" />

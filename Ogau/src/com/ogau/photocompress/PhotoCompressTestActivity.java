@@ -37,7 +37,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 	private LinearLayout ll_act_m, ll_act_l, ll_act_r;
 	private TextView tv_act_m, tv_act_l, tv_act_r;
 
-	private TextView tv_pra_old, tv_pra_now;
+	private TextView tv_pra_old, tv_pra_now,tv_path_now,tv_path_old;
 	private ImageView iv_now;
 
 	private static final int REQUEST_CAMERA_CODE = 11;
@@ -107,7 +107,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 	}
 
 	private void compressWithRx(File file) {
-		
+		tv_path_old.setText("压缩前图片路径："+file.getAbsolutePath());
 		 Flowable.just(file)
 	        .observeOn(Schedulers.io())
 	        .map(new Function<File, File>() {
@@ -123,6 +123,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 	            Glide.with(context).load(file).into(iv_now);
 
 	            tv_pra_now.setText("压缩后图片参数："+file.length() / 1024 + "k     "+computeSize(file)[0] + "*" + computeSize(file)[1]);
+	            tv_path_now.setText("压缩后图片路径："+file.getAbsolutePath());
 	          }
 	        });
 	}
@@ -130,6 +131,8 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 	private void initViews() {
 		tv_pra_old = (TextView) findViewById(R.id.tv_pra_old);
 		tv_pra_now = (TextView) findViewById(R.id.tv_pra_now);
+		tv_path_old = (TextView) findViewById(R.id.tv_path_old);
+		tv_path_now = (TextView) findViewById(R.id.tv_path_now);
 		iv_now = (ImageView) findViewById(R.id.iv_now);
 	}
 
@@ -144,7 +147,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 
 		tv_act_m.setText("图片压缩测试");
 		tv_act_l.setText("返回");
-		tv_act_r.setText("选择图片");
+		tv_act_r.setText("选择");
 		// ll_act_r.setVisibility(View.GONE);
 		ll_act_r.setOnClickListener(new OnClickListener() {
 
