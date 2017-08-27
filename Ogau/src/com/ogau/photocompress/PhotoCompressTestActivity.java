@@ -8,6 +8,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -108,24 +109,33 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 
 	private void compressWithRx(File file) {
 		tv_path_old.setText("压缩前图片路径："+file.getAbsolutePath());
-		 Flowable.just(file)
-	        .observeOn(Schedulers.io())
-	        .map(new Function<File, File>() {
-	          @Override public File apply(@NonNull File file) throws Exception {
-	            return Luban.with(context).load(file).get();
-	          }
-	        })
-	        .observeOn(AndroidSchedulers.mainThread())
-	        .subscribe(new Consumer<File>() {
-	          @Override public void accept(@NonNull File file) throws Exception {
-	            Log.d(TAG, file.getAbsolutePath());
-
-	            Glide.with(context).load(file).into(iv_now);
-
-	            tv_pra_now.setText("压缩后图片参数："+file.length() / 1024 + "k     "+computeSize(file)[0] + "*" + computeSize(file)[1]);
-	            tv_path_now.setText("压缩后图片路径："+file.getAbsolutePath());
-	          }
-	        });
+		try {
+			File fileNew=Luban.with(context).load(file).get();
+			Glide.with(context).load(fileNew).into(iv_now);
+		    tv_pra_now.setText("压缩后图片参数："+fileNew.length() / 1024 + "k     "+computeSize(fileNew)[0] + "*" + computeSize(fileNew)[1]);
+		    tv_path_now.setText("压缩后图片路径："+fileNew.getAbsolutePath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		 Flowable.just(file)
+//	        .observeOn(Schedulers.io())
+//	        .map(new Function<File, File>() {
+//	          @Override public File apply(@NonNull File file) throws Exception {
+//	            return Luban.with(context).load(file).get();
+//	          }
+//	        })
+//	        .observeOn(AndroidSchedulers.mainThread())
+//	        .subscribe(new Consumer<File>() {
+//	          @Override public void accept(@NonNull File file) throws Exception {
+//	            Log.d(TAG, file.getAbsolutePath());
+//
+//	            Glide.with(context).load(file).into(iv_now);
+//
+//	            tv_pra_now.setText("压缩后图片参数："+file.length() / 1024 + "k     "+computeSize(file)[0] + "*" + computeSize(file)[1]);
+//	            tv_path_now.setText("压缩后图片路径："+file.getAbsolutePath());
+//	          }
+//	        });
 	}
 
 	private void initViews() {
