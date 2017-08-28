@@ -29,6 +29,8 @@
         <activity  android:name="com.ogau.photopicker.PhotoPreviewActivity"/>
         <!-- 图片压缩 -->
         <activity  android:name="com.ogau.photocompress.PhotoCompressTestActivity"/>
+        <!-- 图片压缩 -->
+        <activity  android:name="com.ogau.longscreenshoot.LongScreenShootTestActivity"/>
         <!--  -->
     </application>
 
