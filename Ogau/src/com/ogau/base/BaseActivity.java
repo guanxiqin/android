@@ -16,7 +16,7 @@ import android.view.WindowManager;
 public class BaseActivity extends FragmentActivity {
 
 	// *******************透明状态栏和浸入式导航栏1******************
-	public void onWindowFocusChanged(boolean hasFocus) {
+	/*public void onWindowFocusChanged(boolean hasFocus) {
 		super.onWindowFocusChanged(hasFocus);
 
 		View mDecorView = getWindow().getDecorView();
@@ -32,7 +32,7 @@ public class BaseActivity extends FragmentActivity {
 			window.setNavigationBarColor(Color.TRANSPARENT);
 		}
 
-	}
+	}*/
 
 	// *******************透明状态栏和浸入式导航栏2******************
 	private void initWindows() {

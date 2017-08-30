@@ -1,6 +1,7 @@
 package com.ogau;
 
 import com.ogau.base.BaseActivity;
+import com.ogau.longscreenshoot.LongScreenShootTestActivity;
 import com.ogau.photocompress.PhotoCompressTestActivity;
 import com.ogau.photopicker.TestPhotoPickerActivity;
 
@@ -16,7 +17,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private Context context = MainActivity.this;
 	private String TAG = this.getClass().getSimpleName();
 
-	private Button bt_photo_picker,bt_photo_compress;
+	private Button bt_photo_picker,bt_photo_compress,bt_long_screen_shoot;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			Intent intentPPr=new Intent(context, PhotoCompressTestActivity.class);
 			startActivity(intentPPr);
 			break;
+		case R.id.bt_long_screen_shoot:
+			Intent intentLss=new Intent(context, LongScreenShootTestActivity.class);
+			startActivity(intentLss);
+			break;
 		default:
 			break;
 		}
@@ -46,9 +51,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private void initViews() {
 		bt_photo_picker = (Button) findViewById(R.id.bt_photo_picker);
 		bt_photo_compress = (Button) findViewById(R.id.bt_photo_compress);
+		bt_long_screen_shoot = (Button) findViewById(R.id.bt_long_screen_shoot);
 		
 		
 		bt_photo_picker.setOnClickListener(this);
 		bt_photo_compress.setOnClickListener(this);
+		bt_long_screen_shoot.setOnClickListener(this);
 	}
 }

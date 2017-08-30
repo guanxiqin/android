@@ -28,6 +28,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="图片压缩" />
+             <Button
+                android:id="@+id/bt_long_screen_shoot"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="长截屏" />
         </LinearLayout>
     </ScrollView>
 
