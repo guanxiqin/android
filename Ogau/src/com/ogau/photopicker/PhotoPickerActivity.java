@@ -158,6 +158,7 @@ public class PhotoPickerActivity extends BaseActivity {
 					}
 
 					mFolderAdapter.setData(mResultFolder);
+					Log.d("xiangce->",mResultFolder.size()+"");
 					hasFolderGened = true;
 
 				}
@@ -380,7 +381,7 @@ public class PhotoPickerActivity extends BaseActivity {
 							btnAlbum.setText(R.string.ogau_photopicker_all_image);
 							mImageAdapter.setShowCamera(mIsShowCamera);
 						} else {
-							Folder folder = (Folder) v.getAdapter().getItem(index);
+							Folder folder = (Folder) v.getAdapter().getItem(index-1);
 							if (null != folder) {
 								mImageAdapter.setData(folder.images);
 								btnAlbum.setText(folder.name);

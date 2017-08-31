@@ -47,8 +47,8 @@ public class FolderAdapter extends BaseAdapter {
 	@Override
 	public Folder getItem(int position) {
 		// TODO Auto-generated method stub
-		if (position == 0)
-			return null;
+//		if (position == 0)
+//			return null;
 
 		return mFolders.get(position);
 	}
@@ -78,7 +78,7 @@ public class FolderAdapter extends BaseAdapter {
 					Glide.with(mContext).load(new File(f.path)).error(R.mipmap.default_error).override(mImageSize, mImageSize).centerCrop().into(holder.cover);
 				}
 			} else {
-				holder.bindData(mFolders.get(position));
+				holder.bindData(mFolders.get(position-1));
 			}
 			if (lastSelected == position) {
 				holder.indicator.setVisibility(View.VISIBLE);

@@ -1,5 +1,6 @@
 package com.ogau.socialshare;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 
 import com.ogau.R;
 import com.ogau.base.BaseActivity;
+import com.ogau.socialshare.mobshare.MobShareActivity;
 
 public class SocialShareTestActivity extends BaseActivity implements OnClickListener {
 
@@ -33,6 +35,8 @@ public class SocialShareTestActivity extends BaseActivity implements OnClickList
 
 	}
 	private void gotoMobShareActivity(){
+		Intent intent=new Intent(this, MobShareActivity.class);
+		startActivity(intent);
 		
 	}
 
