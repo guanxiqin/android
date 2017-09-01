@@ -40,10 +40,19 @@ public class SocialShareTestActivity extends BaseActivity implements OnClickList
 		
 	}
 
-	private void initViews() {
+
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
 		bt_share_mob = (Button) findViewById(R.id.bt_share_mob);
 
 		bt_share_mob.setOnClickListener(this);
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

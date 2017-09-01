@@ -258,44 +258,6 @@ public class PhotoPickerActivity extends BaseActivity {
 		});
 	}
 
-	private void initViews() {
-		mCxt = this;
-		captureManager = new ImageCaptureManager(mCxt);
-
-		mGridView = (GridView) findViewById(R.id.grid);
-		mGridView.setNumColumns(getNumColnums());
-
-		mPopupAnchorView = findViewById(R.id.photo_picker_footer);
-		btnAlbum = (Button) findViewById(R.id.btnAlbum);
-		btnPreview = (Button) findViewById(R.id.btnPreview);
-
-		tv_right = (TextView) findViewById(R.id.tv_right);
-		tv_title = (TextView) findViewById(R.id.tv_title);
-		tv_left = (TextView) findViewById(R.id.tv_left);
-
-		tv_right.setText("back");
-		tv_title.setText("图片");
-		tv_left.setText("完成");
-
-		tv_right.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				finish();
-			}
-		});
-
-		tv_left.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				complete();
-			}
-		});
-		refreshActionStatus();
-	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -535,6 +497,55 @@ public class PhotoPickerActivity extends BaseActivity {
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		captureManager.onRestoreInstanceState(savedInstanceState);
 		super.onRestoreInstanceState(savedInstanceState);
+	}
+
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
+
+		mCxt = this;
+		captureManager = new ImageCaptureManager(mCxt);
+
+		mGridView = (GridView) findViewById(R.id.grid);
+		mGridView.setNumColumns(getNumColnums());
+
+		mPopupAnchorView = findViewById(R.id.photo_picker_footer);
+		btnAlbum = (Button) findViewById(R.id.btnAlbum);
+		btnPreview = (Button) findViewById(R.id.btnPreview);
+
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_title = (TextView) findViewById(R.id.tv_title);
+		tv_left = (TextView) findViewById(R.id.tv_left);
+
+		tv_right.setText("back");
+		tv_title.setText("图片");
+		tv_left.setText("完成");
+
+		tv_right.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+
+		tv_left.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				complete();
+			}
+		});
+		refreshActionStatus();
+	
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

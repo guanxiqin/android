@@ -49,7 +49,7 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 		super.onCreate(arg0);
 		setContentView(R.layout.activity_photo_compress_test);
 
-		initAct();
+		initActb();
 		initViews();
 	}
 
@@ -138,15 +138,24 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 //	        });
 	}
 
-	private void initViews() {
+
+
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
+
 		tv_pra_old = (TextView) findViewById(R.id.tv_pra_old);
 		tv_pra_now = (TextView) findViewById(R.id.tv_pra_now);
 		tv_path_old = (TextView) findViewById(R.id.tv_path_old);
 		tv_path_now = (TextView) findViewById(R.id.tv_path_now);
 		iv_now = (ImageView) findViewById(R.id.iv_now);
+	
 	}
 
-	private void initAct() {
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+
 		ll_act_m = (LinearLayout) findViewById(R.id.ll_act_m);
 		ll_act_l = (LinearLayout) findViewById(R.id.ll_act_l);
 		ll_act_r = (LinearLayout) findViewById(R.id.ll_act_r);
@@ -175,5 +184,6 @@ public class PhotoCompressTestActivity extends BaseActivity implements OnClickLi
 				finish();
 			}
 		});
+	
 	}
 }

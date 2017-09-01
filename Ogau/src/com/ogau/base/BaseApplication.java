@@ -1,5 +1,6 @@
 package com.ogau.base;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.mob.MobSDK;
 
 import cn.sharesdk.framework.ShareSDK;
@@ -11,6 +12,7 @@ public class BaseApplication extends Application {
 		// TODO Auto-generated method stub
 		super.onCreate();
 		MobSDK.init(this, "20966e1a28932 ", "463357b21cf90cafc369d19a7eb768b6");
+		SDKInitializer.initialize(getApplicationContext()); 
 	}
 
 }

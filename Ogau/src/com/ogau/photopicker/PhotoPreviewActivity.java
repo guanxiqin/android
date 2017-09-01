@@ -36,48 +36,6 @@ public class PhotoPreviewActivity extends BaseActivity implements PhotoViewClick
 		initViews();
 	}
 	
-	private void initViews() {
-		mViewPager = (ViewPagerFixed) findViewById(R.id.vp_photos);
-		tv_title = (TextView) findViewById(R.id.tv_title);
-		tv_right = (TextView) findViewById(R.id.tv_right);
-		tv_left = (TextView) findViewById(R.id.tv_left);
-
-		tv_title.setText("图片预览");
-		tv_left.setText("");
-		tv_right.setText("删除");
-		tv_right.setOnClickListener(this);
-
-		paths = new ArrayList<String>();
-		ArrayList<String> pathArr = getIntent().getStringArrayListExtra(Constants.EXTRA_PHOTOS);
-		if (pathArr != null) {
-			paths.addAll(pathArr);
-		}
-		currentItem = getIntent().getIntExtra(Constants.EXTRA_CURRENT_ITEM, 0);
-
-		mPagerAdapter = new PhotoPagerAdapter(this, paths);
-		mPagerAdapter.setPhotoViewClickListener(this);
-
-		mViewPager.setAdapter(mPagerAdapter);
-		mViewPager.setCurrentItem(currentItem);
-		mViewPager.setOffscreenPageLimit(5);
-		mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			@Override
-			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-				updateActionBarTitle();
-			}
-
-			@Override
-			public void onPageSelected(int position) {
-
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int state) {
-
-			}
-		});
-		updateActionBarTitle();
-	}
 
 	private void updateActionBarTitle() {
 		tv_left.setText(mViewPager.getCurrentItem() + 1 + "/" + paths.size());
@@ -136,6 +94,59 @@ public class PhotoPreviewActivity extends BaseActivity implements PhotoViewClick
 		setResult(RESULT_OK, intent);
 		finish();
 		super.onBackPressed();
+	}
+
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
+
+		mViewPager = (ViewPagerFixed) findViewById(R.id.vp_photos);
+		tv_title = (TextView) findViewById(R.id.tv_title);
+		tv_right = (TextView) findViewById(R.id.tv_right);
+		tv_left = (TextView) findViewById(R.id.tv_left);
+
+		tv_title.setText("图片预览");
+		tv_left.setText("");
+		tv_right.setText("删除");
+		tv_right.setOnClickListener(this);
+
+		paths = new ArrayList<String>();
+		ArrayList<String> pathArr = getIntent().getStringArrayListExtra(Constants.EXTRA_PHOTOS);
+		if (pathArr != null) {
+			paths.addAll(pathArr);
+		}
+		currentItem = getIntent().getIntExtra(Constants.EXTRA_CURRENT_ITEM, 0);
+
+		mPagerAdapter = new PhotoPagerAdapter(this, paths);
+		mPagerAdapter.setPhotoViewClickListener(this);
+
+		mViewPager.setAdapter(mPagerAdapter);
+		mViewPager.setCurrentItem(currentItem);
+		mViewPager.setOffscreenPageLimit(5);
+		mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+				updateActionBarTitle();
+			}
+
+			@Override
+			public void onPageSelected(int position) {
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
+
+			}
+		});
+		updateActionBarTitle();
+	
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -33,6 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="长截屏" />
+             <Button
+                android:id="@+id/bt_baidu_map"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="百度地图" />
         </LinearLayout>
     </ScrollView>
 

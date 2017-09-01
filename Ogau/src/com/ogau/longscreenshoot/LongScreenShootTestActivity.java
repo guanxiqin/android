@@ -296,4 +296,16 @@ public class LongScreenShootTestActivity extends BaseActivity implements OnClick
 		}
 	}
 
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

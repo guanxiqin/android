@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity {
 
 	// *******************透明状态栏和浸入式导航栏1******************
 	/*public void onWindowFocusChanged(boolean hasFocus) {
@@ -102,4 +102,12 @@ public class BaseActivity extends FragmentActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 	}
 
+	/**
+	 * 初始化界面
+	 */
+	protected abstract void initViews();
+	/**
+	 * 初始化状态栏
+	 */
+	protected abstract void initActb();
 }

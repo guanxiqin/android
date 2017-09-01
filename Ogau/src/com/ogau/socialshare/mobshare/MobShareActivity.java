@@ -13,4 +13,16 @@ public class MobShareActivity extends BaseActivity implements OnClickListener {
 
 	}
 
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -52,7 +52,7 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_test_photo_picker);
 		initAct();
-		initView();
+		initViews();
 	}
 
 	@Override
@@ -64,80 +64,6 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 		}
 	}
 
-	private void initView() {
-
-		bt_pic_single = (Button) findViewById(R.id.bt_pic_single);
-		bt_pic_multy = (Button) findViewById(R.id.bt_pic_multy);
-		bt_pic_photo = (Button) findViewById(R.id.bt_pic_photo);
-		gv_pic = (GridView) findViewById(R.id.gv_pic);
-
-		bt_pic_single.setOnClickListener(this);
-		bt_pic_multy.setOnClickListener(this);
-		bt_pic_photo.setOnClickListener(this);
-
-		int cols = getResources().getDisplayMetrics().widthPixels / getResources().getDisplayMetrics().densityDpi;
-		cols = cols < 3 ? 3 : cols;
-		gv_pic.setNumColumns(cols);
-
-		// Item Width
-		int screenWidth = getResources().getDisplayMetrics().widthPixels;
-		int columnSpace = getResources().getDimensionPixelOffset(R.dimen.ogau_photopicker_space_size);
-		columnWidth = (screenWidth - columnSpace * (cols - 1)) / cols;
-
-		bt_pic_single.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				PhotoPickerIntent intent = new PhotoPickerIntent(TestPhotoPickerActivity.this);
-				intent.setSelectModel(SelectModel.SINGLE);
-				intent.setShowCamera(true);
-				// intent.setImageConfig(null);
-				startActivityForResult(intent, REQUEST_CAMERA_CODE);
-			}
-		});
-
-		bt_pic_multy.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				PhotoPickerIntent intent = new PhotoPickerIntent(TestPhotoPickerActivity.this);
-				intent.setSelectModel(SelectModel.MULTI);
-				intent.setShowCamera(true); // 是否显示拍照
-				intent.setMaxTotal(9); // 最多选择照片数量，默认为9
-				intent.setSelectedPaths(imagePaths); // 已选中的照片地址， 用于回显选中状态
-				// ImageConfig config = new ImageConfig();
-				// config.minHeight = 400;
-				// config.minWidth = 400;
-				// config.mimeType = new String[]{"image/jpeg", "image/png"};
-				// config.minSize = 1 * 1024 * 1024; // 1Mb
-				// intent.setImageConfig(config);
-
-				startActivityForResult(intent, REQUEST_CAMERA_CODE);
-			}
-		});
-
-		bt_pic_photo.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				try {
-					if (captureManager == null) {
-						captureManager = new ImageCaptureManager(TestPhotoPickerActivity.this);
-					}
-					Intent intent = captureManager.dispatchTakePictureIntent();
-					startActivityForResult(intent, ImageCaptureManager.REQUEST_TAKE_PHOTO);
-				} catch (IOException e) {
-					Toast.makeText(TestPhotoPickerActivity.this, "", Toast.LENGTH_SHORT).show();
-					e.printStackTrace();
-				}
-			}
-		});
-		gv_pic.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				// TODO Auto-generated method stub
-				gotoPreview(position);
-			}
-		});
-	}
 
 	private void gotoPreview(int position) {
 		PhotoPreviewIntent intent = new PhotoPreviewIntent(context);
@@ -258,5 +184,90 @@ public class TestPhotoPickerActivity extends BaseActivity implements OnClickList
 				finish();
 			}
 		});
+	}
+
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
+
+
+		bt_pic_single = (Button) findViewById(R.id.bt_pic_single);
+		bt_pic_multy = (Button) findViewById(R.id.bt_pic_multy);
+		bt_pic_photo = (Button) findViewById(R.id.bt_pic_photo);
+		gv_pic = (GridView) findViewById(R.id.gv_pic);
+
+		bt_pic_single.setOnClickListener(this);
+		bt_pic_multy.setOnClickListener(this);
+		bt_pic_photo.setOnClickListener(this);
+
+		int cols = getResources().getDisplayMetrics().widthPixels / getResources().getDisplayMetrics().densityDpi;
+		cols = cols < 3 ? 3 : cols;
+		gv_pic.setNumColumns(cols);
+
+		// Item Width
+		int screenWidth = getResources().getDisplayMetrics().widthPixels;
+		int columnSpace = getResources().getDimensionPixelOffset(R.dimen.ogau_photopicker_space_size);
+		columnWidth = (screenWidth - columnSpace * (cols - 1)) / cols;
+
+		bt_pic_single.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				PhotoPickerIntent intent = new PhotoPickerIntent(TestPhotoPickerActivity.this);
+				intent.setSelectModel(SelectModel.SINGLE);
+				intent.setShowCamera(true);
+				// intent.setImageConfig(null);
+				startActivityForResult(intent, REQUEST_CAMERA_CODE);
+			}
+		});
+
+		bt_pic_multy.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				PhotoPickerIntent intent = new PhotoPickerIntent(TestPhotoPickerActivity.this);
+				intent.setSelectModel(SelectModel.MULTI);
+				intent.setShowCamera(true); // 是否显示拍照
+				intent.setMaxTotal(9); // 最多选择照片数量，默认为9
+				intent.setSelectedPaths(imagePaths); // 已选中的照片地址， 用于回显选中状态
+				// ImageConfig config = new ImageConfig();
+				// config.minHeight = 400;
+				// config.minWidth = 400;
+				// config.mimeType = new String[]{"image/jpeg", "image/png"};
+				// config.minSize = 1 * 1024 * 1024; // 1Mb
+				// intent.setImageConfig(config);
+
+				startActivityForResult(intent, REQUEST_CAMERA_CODE);
+			}
+		});
+
+		bt_pic_photo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				try {
+					if (captureManager == null) {
+						captureManager = new ImageCaptureManager(TestPhotoPickerActivity.this);
+					}
+					Intent intent = captureManager.dispatchTakePictureIntent();
+					startActivityForResult(intent, ImageCaptureManager.REQUEST_TAKE_PHOTO);
+				} catch (IOException e) {
+					Toast.makeText(TestPhotoPickerActivity.this, "", Toast.LENGTH_SHORT).show();
+					e.printStackTrace();
+				}
+			}
+		});
+		gv_pic.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				// TODO Auto-generated method stub
+				gotoPreview(position);
+			}
+		});
+	
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
 	}
 }

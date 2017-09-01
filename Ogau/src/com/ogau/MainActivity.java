@@ -2,6 +2,7 @@ package com.ogau;
 
 import com.ogau.base.BaseActivity;
 import com.ogau.longscreenshoot.LongScreenShootTestActivity;
+import com.ogau.map_location.baidu.BaiduMapTestActivity;
 import com.ogau.photocompress.PhotoCompressTestActivity;
 import com.ogau.photopicker.TestPhotoPickerActivity;
 
@@ -17,7 +18,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private Context context = MainActivity.this;
 	private String TAG = this.getClass().getSimpleName();
 
-	private Button bt_photo_picker,bt_photo_compress,bt_long_screen_shoot;
+	private Button bt_photo_picker,bt_photo_compress,bt_long_screen_shoot,bt_baidu_map;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +43,36 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			Intent intentLss=new Intent(context, LongScreenShootTestActivity.class);
 			startActivity(intentLss);
 			break;
+		case R.id.bt_baidu_map:
+			Intent intentBmap=new Intent(context, BaiduMapTestActivity.class);
+			startActivity(intentBmap);
+			break;
 		default:
 			break;
 		}
 
 	}
 
-	private void initViews() {
+
+	@Override
+	protected void initViews() {
+		// TODO Auto-generated method stub
 		bt_photo_picker = (Button) findViewById(R.id.bt_photo_picker);
 		bt_photo_compress = (Button) findViewById(R.id.bt_photo_compress);
 		bt_long_screen_shoot = (Button) findViewById(R.id.bt_long_screen_shoot);
+		bt_baidu_map = (Button) findViewById(R.id.bt_baidu_map);
 		
 		
 		bt_photo_picker.setOnClickListener(this);
 		bt_photo_compress.setOnClickListener(this);
 		bt_long_screen_shoot.setOnClickListener(this);
+		bt_baidu_map.setOnClickListener(this);
+		
+	}
+
+	@Override
+	protected void initActb() {
+		// TODO Auto-generated method stub
+		
 	}
 }
