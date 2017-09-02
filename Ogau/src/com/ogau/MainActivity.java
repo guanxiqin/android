@@ -5,6 +5,7 @@ import com.ogau.longscreenshoot.LongScreenShootTestActivity;
 import com.ogau.map_location.baidu.BaiduMapTestActivity;
 import com.ogau.photocompress.PhotoCompressTestActivity;
 import com.ogau.photopicker.TestPhotoPickerActivity;
+import com.ogau.socialshare.SocialShareTestActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,7 +19,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private Context context = MainActivity.this;
 	private String TAG = this.getClass().getSimpleName();
 
-	private Button bt_photo_picker,bt_photo_compress,bt_long_screen_shoot,bt_baidu_map;
+	private Button bt_photo_picker,bt_photo_compress,bt_long_screen_shoot,bt_baidu_map,bt_share;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			Intent intentBmap=new Intent(context, BaiduMapTestActivity.class);
 			startActivity(intentBmap);
 			break;
+		case R.id.bt_share:
+			Intent intentShare=new Intent(context, SocialShareTestActivity.class);
+			startActivity(intentShare);
+			break;
 		default:
 			break;
 		}
@@ -61,12 +66,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		bt_photo_compress = (Button) findViewById(R.id.bt_photo_compress);
 		bt_long_screen_shoot = (Button) findViewById(R.id.bt_long_screen_shoot);
 		bt_baidu_map = (Button) findViewById(R.id.bt_baidu_map);
+		bt_share = (Button) findViewById(R.id.bt_share);
 		
 		
 		bt_photo_picker.setOnClickListener(this);
 		bt_photo_compress.setOnClickListener(this);
 		bt_long_screen_shoot.setOnClickListener(this);
 		bt_baidu_map.setOnClickListener(this);
+		bt_share.setOnClickListener(this);
 		
 	}
 

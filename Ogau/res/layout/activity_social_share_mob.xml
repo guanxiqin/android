@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/bt_sina_shar_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="新浪图文链接分享" />
+
+    <Button
+        android:id="@+id/bt_wc_shar_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="腾讯微博微博图文链接分享" />
+
+    <Button
+        android:id="@+id/bt_wechat_shar_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="微信好友图文链接分享" />
+    <Button
+        android:id="@+id/bt_wechat_moment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="微信moment图文链接分享" />
+    <Button
+        android:id="@+id/bt_wechat_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="微信favorite图文链接分享" />
+
+</LinearLayout>
