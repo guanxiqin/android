@@ -10,6 +10,7 @@ import android.widget.Button;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.Platform.ShareParams;
 import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.weibo.TencentWeibo;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
@@ -64,10 +65,9 @@ public class MobShareActivity extends BaseActivity implements OnClickListener {
 	 */
 	private void doSinaShareAll() {
 		ShareParams sp = new ShareParams();
-		sp.setText("测试分享的文本  www.baidu.com");
+		sp.setText("测试分享的文本 http://www.baidu.com");
 		sp.setImagePath(PhoneUtils.getExternalPath() + "/MagazineUnlock/aa.jpg");
-		// sp.setUrl("www.baidu.com");
-		sp.setImageUrl("www.baidu.com");
+		 sp.setUrl("");
 
 		Platform weibo = ShareSDK.getPlatform(SinaWeibo.NAME);
 		// weibo.setPlatformActionListener(paListener); // 设置分享事件回调
