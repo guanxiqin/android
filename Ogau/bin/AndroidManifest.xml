@@ -71,6 +71,8 @@
         <activity android:name="com.ogau.photocompress.PhotoCompressTestActivity" />
         <!-- 长截屏 -->
         <activity android:name="com.ogau.longscreenshoot.LongScreenShootTestActivity" />
+        <!-- 三级联动选择 -->
+        <activity android:name="com.ogau.widget.wheelselect.WheelSecletcTestActivity" />
         <!-- 分享 -->
         <activity android:name="com.ogau.socialshare.SocialShareTestActivity" />
         <!-- MOB分享 -->

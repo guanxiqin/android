@@ -7,4 +7,6 @@
     <color name="action_text_color_pressed">#353535</color>
     <color name="action_text_color_enabled">#818585</color>
     <color name="ogau_photopicker_background">#181819</color>
+    
+    <color name="ogau_wheel_province_line_border">#C7C7C7</color>
 </resources>

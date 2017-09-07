@@ -6,6 +6,7 @@ import com.ogau.map_location.baidu.BaiduMapTestActivity;
 import com.ogau.photocompress.PhotoCompressTestActivity;
 import com.ogau.photopicker.TestPhotoPickerActivity;
 import com.ogau.socialshare.SocialShareTestActivity;
+import com.ogau.widget.wheelselect.WheelSecletcTestActivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,6 +21,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private String TAG = this.getClass().getSimpleName();
 
 	private Button bt_photo_picker,bt_photo_compress,bt_long_screen_shoot,bt_baidu_map,bt_share;
+	private Button bt_select_3lv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		case R.id.bt_share:
 			Intent intentShare=new Intent(context, SocialShareTestActivity.class);
 			startActivity(intentShare);
+			break;
+		case R.id.bt_select_3lv:
+			Intent intent3lv=new Intent(context, WheelSecletcTestActivity.class);
+			startActivity(intent3lv);
 			break;
 		default:
 			break;
